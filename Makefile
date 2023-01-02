@@ -2,7 +2,7 @@ build:
 	@docker build . -t chat-image
 
 up:
-	@docker run -p 3000:3000 -d --name chat-container -v $(pwd):/app chat-image
+	@docker run -p 3000:3000 -d --name chat-container -v "$(CURDIR):/app" chat-image
 
 down:
 	@docker stop chat-container
