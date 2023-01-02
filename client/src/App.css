@@ -34,39 +34,26 @@
 .chatbox {
   flex: 1;
   background-color: #343541;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chat-input-holder {
+  padding: 24px;
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.chat-input-textarea {
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-size: 1.25em;
+  background-color: #40414f;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  margin: 12px;
+  padding: 12px;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
 }
