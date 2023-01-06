@@ -5,7 +5,7 @@ build:
 up:
 	@docker run -p 3000:3000 -d --name front-container -v "$(CURDIR):/app" front-image sh -c "cd client && npm start"
 	@echo "React container running"
-	@docker run -p 8000:8000 -d --name back-container -v "$(CURDIR)/server:/app" back-image sh -c "node index.js"
+	@docker run -p 3080:3080 -d --name back-container -v "$(CURDIR)/server:/app" back-image sh -c "node index.js"
 	@echo "Node container running"
 
 down:

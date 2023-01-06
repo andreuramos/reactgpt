@@ -1,12 +1,16 @@
+require("dotenv").config();
+const express = require('express');
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
     organization: "org-noAd6Hu5vicXT3HSBXwaL6ks",
     apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-// const response = await openai.listEngines();
 
-async function callApi() {
+const app = express();
+const port = 3080;
+
+app.get('/',  async (req, res) => {
     const response = await openai.createCompletion({
         "model": "text-davinci-003",
         "prompt": "Say this is a test",
@@ -19,7 +23,10 @@ async function callApi() {
         "stop": "\n"
       });
 
-      console.log(response.data.choices[0].text)
-}
-
-callApi();
+      res.json({
+          data: response.data
+      })
+})
+app.listen(port, () => {
+    console.log(`Example app listening http://localhost:${port}`);
+})
